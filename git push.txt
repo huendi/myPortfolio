@@ -1,0 +1,4 @@
+cd desktop\mywebportfolio
+git add .
+git commit -m "Update with latest changes"
+git push origin main

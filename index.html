@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Wendy Francisco — Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Music (your existing files) -->
+<audio id="bg-music" loop>
+  <source src="music/background.mp3" type="audio/mpeg">
+</audio>
+<audio id="music-sparkle" loop>
+  <source src="about/Sparkle.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Petal Canvas -->
+<canvas id="petal-canvas"></canvas>
+
+<!-- Professional Mode Toggle -->
+<div class="mode-controls">
+  <button id="mode-toggle" onclick="toggleMode()" title="Toggle professional mode">
+    <i class="fas fa-circle-half-stroke"></i>
+  </button>
+</div>
+
+<!-- Music Toggle -->
+<div class="music-controls">
+  <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">
+    <i class="fas fa-music"></i>
+  </button>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="nav-name" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});">Wendy Francisco</a>
+    <nav class="tabs">
+      <a href="#about" class="tab">About</a>
+      <a href="#portfolio" class="tab">Projects</a>
+      <a href="#design" class="tab">Design</a>
+      <a href="#career" class="tab">Career</a>
+      <a href="#contact" class="tab">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-watermark">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="#c4704a">
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(0 100 100)"/>
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(45 100 100)"/>
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(90 100 100)"/>
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(135 100 100)"/>
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(180 100 100)"/>
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(225 100 100)"/>
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(270 100 100)"/>
+      <ellipse cx="100" cy="60" rx="18" ry="32" transform="rotate(315 100 100)"/>
+      <circle cx="100" cy="100" r="10"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <span class="hero-tag">Open to work · Fresh Graduate · BSIT</span>
+    <p class="hero-jp">ようこそ — Welcome</p>
+    <h1>Hi, I'm Wendy.<br><em>I build web systems.</em></h1>
+    <p class="hero-desc">4th year BSIT student at Cavite State University – Silang. I design, plan, and build systems with purpose — from payroll compliance tools to real estate platforms.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#portfolio">View Projects</a>
+      <a class="btn-secondary" href="about/resume.pdf" target="_blank">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<div class="torii-divider"><span>⛩️</span></div>
+
+<!-- ABOUT -->
+<section class="section alt" id="about">
+  <div class="section-label">About Me</div>
+  <div class="about-grid">
+    <div class="about-photo-wrap">
+      <img src="images/wendy.jfif" alt="Wendy Francisco" class="about-photo">
+    </div>
+    <div class="about-text">
+      <h2>Konnichiwa!<br>I'm Wendy.</h2>
+      <p>I'm a dedicated mother of three and a 4th year BSIT student at Cavite State University – Silang Campus. I bring over 7 years of experience as a Registrar Staff in a higher education institution, where I built a strong foundation in administrative work and developed key technical skills.</p>
+      <p>I'm also a freelance General Virtual Assistant on Upwork, consistently rated 5 stars for reliability and efficiency in tasks like email management, data entry, and customer support.</p>
+      <p>With a mix of academic training and hands-on experience, I'm passionate about helping organizations stay organized, creative, and productive.</p>
+      <div class="skills-grid" style="margin-top:24px;">
+        <span class="skill-tag">Laravel</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Inertia.js</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">HTML / CSS / JS</span>
+        <span class="skill-tag">Git & GitHub</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">EmailJS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="torii-divider"><span>🏯</span></div>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio">
+  <div class="section-label">Projects</div>
+  <div class="projects-list">
+
+    <!-- Project 1: Payroll -->
+    <div class="project-row">
+      <div class="project-media">
+        <img id="payroll-main" src="projects/Payroll System/1.png" alt="Payroll System"
+          onclick="openGallery(['projects/Payroll System/1.png','projects/Payroll System/2.png','projects/Payroll System/3.png','projects/Payroll System/4.png','projects/Payroll System/6.png'], 0)">
+        <div class="project-thumbs">
+          <img src="projects/Payroll System/1.png" class="active" onclick="switchMain('payroll-main',this,'projects/Payroll System/1.png')">
+          <img src="projects/Payroll System/2.png" onclick="switchMain('payroll-main',this,'projects/Payroll System/2.png')">
+          <img src="projects/Payroll System/3.png" onclick="switchMain('payroll-main',this,'projects/Payroll System/3.png')">
+          <img src="projects/Payroll System/4.png" onclick="switchMain('payroll-main',this,'projects/Payroll System/4.png')">
+          <img src="projects/Payroll System/6.png" onclick="switchMain('payroll-main',this,'projects/Payroll System/6.png')">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-badge">Capstone Project</div>
+        <h3>Payroll & Timekeeping System</h3>
+        <p>A comprehensive payroll and timekeeping system with Philippine statutory compliance built-in — SSS, PhilHealth, PAG-IBIG, and BIR withholding tax. Features role-based access control, DTR Excel upload, automatic premium pay computation, and payslip generation.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Laravel</span>
+          <span class="stack-tag">React</span>
+          <span class="stack-tag">Inertia.js</span>
+          <span class="stack-tag">MySQL</span>
+          <span class="stack-tag">TypeScript</span>
+          <span class="stack-tag">Tailwind CSS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: MRU Roadmap -->
+    <div class="project-row">
+      <div class="project-media">
+        <img id="mru-main" src="projects/MRU Roadmap/page1.png" alt="MRU Roadmap"
+          onclick="openGallery(['projects/MRU Roadmap/page1.png','projects/MRU Roadmap/page2.png','projects/MRU Roadmap/page3.png','projects/MRU Roadmap/page4.png','projects/MRU Roadmap/page5.png'], 0)">
+        <div class="project-thumbs">
+          <img src="projects/MRU Roadmap/page1.png" class="active" onclick="switchMain('mru-main',this,'projects/MRU Roadmap/page1.png')">
+          <img src="projects/MRU Roadmap/page2.png" onclick="switchMain('mru-main',this,'projects/MRU Roadmap/page2.png')">
+          <img src="projects/MRU Roadmap/page3.png" onclick="switchMain('mru-main',this,'projects/MRU Roadmap/page3.png')">
+          <img src="projects/MRU Roadmap/page4.png" onclick="switchMain('mru-main',this,'projects/MRU Roadmap/page4.png')">
+          <img src="projects/MRU Roadmap/page5.png" onclick="switchMain('mru-main',this,'projects/MRU Roadmap/page5.png')">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-badge">OJT Project · Sun Life Canada Philippines</div>
+        <h3>MRU FA Roadmap</h3>
+        <p>A web application developed during my 486-hour practicum at Sun Life Canada Philippines Inc. under the Mount Rushmore Unit. The system guides Financial Advisors through a structured 7-level certification roadmap — covering basic requirements, Sun Life training, IC/IIAP exam review, mock exams, licensure, CA forms, and contract signing. Each level tracks step-by-step progress, and completing all requirements in Level 7 marks a Financial Advisor as fully coded — officially onboarded into the unit. Admins can monitor all FAs, manage approvals, and track overall unit progress in real time.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Next.js</span>
+          <span class="stack-tag">TypeScript</span>
+          <span class="stack-tag">Tailwind CSS</span>
+          <span class="stack-tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: TrioVista -->
+    <div class="project-row">
+      <div class="project-media">
+        <img id="triovista-main" src="projects/triovista/image1.png" alt="TrioVista Heights"
+          onclick="openGallery(['projects/triovista/image1.png','projects/triovista/image2.png','projects/triovista/image3.png','projects/triovista/image4.png','projects/triovista/image5.png'], 0)">
+        <div class="project-thumbs">
+          <img src="projects/triovista/image1.png" class="active" onclick="switchMain('triovista-main',this,'projects/triovista/image1.png')">
+          <img src="projects/triovista/image2.png" onclick="switchMain('triovista-main',this,'projects/triovista/image2.png')">
+          <img src="projects/triovista/image3.png" onclick="switchMain('triovista-main',this,'projects/triovista/image3.png')">
+          <img src="projects/triovista/image4.png" onclick="switchMain('triovista-main',this,'projects/triovista/image4.png')">
+          <img src="projects/triovista/image5.png" onclick="switchMain('triovista-main',this,'projects/triovista/image5.png')">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-badge">Web System</div>
+        <h3>TrioVista Heights</h3>
+        <p>A real estate e-commerce website promoting ten modern condominium towers. Users can explore condo units, prices, amenities, and locations. They can send inquiries, take quizzes, and book appointments — all without creating an account.</p>
+        <div class="project-stack">
+          <span class="stack-tag">PHP</span>
+          <span class="stack-tag">Bootstrap</span>
+          <span class="stack-tag">MySQL</span>
+          <span class="stack-tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: CAWD Cafe -->
+    <div class="project-row">
+      <div class="project-media">
+        <img id="cawd-main" src="projects/CAWD Cafe/1.png" alt="CAWD Cafe"
+          onclick="openGallery(['projects/CAWD Cafe/1.png','projects/CAWD Cafe/2.png','projects/CAWD Cafe/3.png','projects/CAWD Cafe/4.png','projects/CAWD Cafe/5.png'], 0)">
+        <div class="project-thumbs">
+          <img src="projects/CAWD Cafe/1.png" class="active" onclick="switchMain('cawd-main',this,'projects/CAWD Cafe/1.png')">
+          <img src="projects/CAWD Cafe/2.png" onclick="switchMain('cawd-main',this,'projects/CAWD Cafe/2.png')">
+          <img src="projects/CAWD Cafe/3.png" onclick="switchMain('cawd-main',this,'projects/CAWD Cafe/3.png')">
+          <img src="projects/CAWD Cafe/4.png" onclick="switchMain('cawd-main',this,'projects/CAWD Cafe/4.png')">
+          <img src="projects/CAWD Cafe/5.png" onclick="switchMain('cawd-main',this,'projects/CAWD Cafe/5.png')">
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-badge">Database System</div>
+        <h3>CAWD Cafe System</h3>
+        <p>A database management system for CAWD Cafe handling employee records and stock inventory. Streamlines operations by tracking employee information, managing stock levels, and providing real-time inventory updates for efficient cafe operations.</p>
+        <div class="project-stack">
+          <span class="stack-tag">HTML</span>
+          <span class="stack-tag">CSS</span>
+          <span class="stack-tag">JavaScript</span>
+          <span class="stack-tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="torii-divider"><span>🪭</span></div>
+
+<!-- DESIGN WORK -->
+<section class="section alt" id="design">
+  <div class="section-label">Design Work</div>
+  <div class="design-grid">
+
+    <a class="design-card" href="https://canva.link/4xwllqfug81mrnx" target="_blank" rel="noopener">
+      <div class="design-card-icon">
+        <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="#7D2AE8"/>
+          <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif" font-weight="700">Ca</text>
+        </svg>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-badge">Canva Design · 01</div>
+        <h4 class="design-card-title">Design Project 1</h4>
+        <p class="design-card-desc">Created using Canva — click to view the full design on Canva.</p>
+      </div>
+      <div class="design-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+    </a>
+
+    <a class="design-card" href="https://canva.link/crncmfajbit1lz3" target="_blank" rel="noopener">
+      <div class="design-card-icon">
+        <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="#7D2AE8"/>
+          <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif" font-weight="700">Ca</text>
+        </svg>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-badge">Canva Design · 02</div>
+        <h4 class="design-card-title">Design Project 2</h4>
+        <p class="design-card-desc">Created using Canva — click to view the full design on Canva.</p>
+      </div>
+      <div class="design-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+    </a>
+
+    <a class="design-card" href="https://canva.link/jtupod4khjx990l" target="_blank" rel="noopener">
+      <div class="design-card-icon">
+        <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="#7D2AE8"/>
+          <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif" font-weight="700">Ca</text>
+        </svg>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-badge">Canva Design · 03</div>
+        <h4 class="design-card-title">Design Project 3</h4>
+        <p class="design-card-desc">Created using Canva — click to view the full design on Canva.</p>
+      </div>
+      <div class="design-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+    </a>
+
+        <a class="design-card" href="https://canva.link/o3anpmdps198vtn" target="_blank" rel="noopener">
+      <div class="design-card-icon">
+        <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="#7D2AE8"/>
+          <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif" font-weight="700">Ca</text>
+        </svg>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-badge">Canva Design · 04</div>
+        <h4 class="design-card-title">Design Project 4</h4>
+        <p class="design-card-desc">Created using Canva — click to view the full design on Canva.</p>
+      </div>
+      <div class="design-card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+    </a>
+
+  </div>
+</section>
+
+<div class="torii-divider"><span>🎐</span></div>
+
+<!-- CAREER -->
+<section class="section alt" id="career">
+  <div class="section-label">Career</div>
+  <div class="career-list">
+    <div class="career-item">
+      <span class="career-year">March-May 2026</span>
+      <div class="career-dot"></div>
+      <div class="career-content">
+        <h4>IT Practicum Intern — Sun Life Canada Philippines Inc.</h4>
+        <p>Completed 486 hours of practicum. Developed a Financial Advisor Monitoring System tracking FA onboarding progress across Levels 1–7.</p>
+      </div>
+    </div>
+    <div class="career-item">
+      <span class="career-year">2012-2015 – 2017-2021</span>
+      <div class="career-dot"></div>
+      <div class="career-content">
+        <h4>Registrar Staff — South Forbes City College</h4>
+        <p>7 years managing academic records and compliance with CHED, DEPED, and TESDA requirements in a higher education institution.</p>
+      </div>
+    </div>
+    <div class="career-item">
+      <span class="career-year">2023 - Present</span>
+      <div class="career-dot"></div>
+      <div class="career-content">
+        <h4>Freelance General VA — Upwork · ⭐ 5.0</h4>
+        <p>Email management, data entry, customer support, and Canva design work. Consistently rated 5 stars for reliability and efficiency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="torii-divider"><span>🌸</span></div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-row">
+    <div class="contact-info">
+      <h3>Let's work<br><em>together.</em></h3>
+      <p>Open to full-time roles in web development, IT support, or anything in between. Let's build something meaningful.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=wendymf013@gmail.com" target="_blank">
+          <span class="contact-icon"><img src="images/gmail.png" alt="Email" style="width:18px;height:18px;"></span>
+          wendymf013@gmail.com
+        </a>
+        <a class="contact-link" href="viber://chat?number=%2B639354879190">
+          <span class="contact-icon"><img src="images/viber.png" alt="Viber" style="width:18px;height:18px;"></span>
+          (0935) 487 9190
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/wendy-francisco-a7897641a" target="_blank">
+          <span class="contact-icon"><img src="images/linkedin.png" alt="LinkedIn" style="width:18px;height:18px;"></span>
+          linkedin.com/in/wendy-francisco
+        </a>
+        <a class="contact-link" href="https://www.upwork.com/freelancers/~01024feee67ee4a9c4" target="_blank">
+           <span class="contact-icon"><img src="images/upwork.svg" alt="Upwork" style="width:18px;height:18px;"></span>
+          upwork.com/freelancers/wendymf013
+        </a>
+        <a class="contact-link" href="https://github.com/huendi" target="_blank">
+          <span class="contact-icon"><i class="fa-brands fa-github"></i></span>
+          github.com/huendi
+        </a>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <h3>Send Me a Message 💌</h3>
+      <form class="contact-form" id="contact-form">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.com"/>
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required placeholder="What's this about?"/>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Your message here..."></textarea>
+        <button type="submit" id="submit-btn">Send Message</button>
+        <div id="form-message" class="form-message"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Wendy Francisco · BSIT · CvSU Silang</p>
+  <div class="footer-links">
+    <a href="https://www.upwork.com/freelancers/~01024feee67ee4a9c4" target="_blank">UpWork</a>
+    <a href="https://www.linkedin.com/in/wendy-francisco-a7897641a/" target="_blank">LinkedIn</a>
+    <a href="about/WENDY M FRANCISCO CV.pdf" target="_blank">CV</a>
+  </div>
+</footer>
+
+<!-- GALLERY LIGHTBOX -->
+<div id="gallery-lightbox" class="gallery-lightbox" onclick="closeGallery()">
+  <span class="gallery-close" onclick="closeGallery()">&times;</span>
+  <button class="gallery-prev" onclick="event.stopPropagation();changeGallery(-1)">&#10094;</button>
+  <img id="gallery-img" src="" alt="Project screenshot" onclick="event.stopPropagation()">
+  <button class="gallery-next" onclick="event.stopPropagation();changeGallery(1)">&#10095;</button>
+</div>
+
+<script>
+  // ===== EMAILJS =====
+  (function(){ emailjs.init("3Jov_xfKsuUR0hFET"); })();
+
+  // ===== STICKY HEADER =====
+  const header = document.querySelector('.header');
+  const tabLinks = document.querySelectorAll('.tab');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+    let current = '';
+    sections.forEach(s => {
+      if(window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    tabLinks.forEach(t => {
+      t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // ===== PROFESSIONAL MODE =====
+  const modeBtn = document.getElementById('mode-toggle');
+  const bgMusic = document.getElementById('bg-music');
+  const sparkle = document.getElementById('music-sparkle');
+
+  function applyMode(isPro){
+    document.body.classList.toggle('pro-mode', isPro);
+    localStorage.setItem('proMode', isPro ? '1' : '0');
+    // Professional mode mutes the ambient music automatically
+    if(isPro && isMusicPlaying){
+      toggleMusic();
+    }
+  }
+
+  function toggleMode(){
+    const isPro = !document.body.classList.contains('pro-mode');
+    applyMode(isPro);
+  }
+
+  // restore saved preference on load
+  if(localStorage.getItem('proMode') === '1'){
+    document.body.classList.add('pro-mode');
+  }
+
+  // ===== MUSIC =====
+  let isMusicPlaying = false;
+  const musicBtn = document.getElementById('music-toggle');
+
+  function toggleMusic(){
+    if(isMusicPlaying){
+      bgMusic.pause(); sparkle.pause();
+      musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+      musicBtn.classList.remove('playing');
+    } else {
+      bgMusic.play().catch(()=>{});
+      sparkle.play().catch(()=>{});
+      musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      musicBtn.classList.add('playing');
+    }
+    isMusicPlaying = !isMusicPlaying;
+  }
+
+  document.addEventListener('click', function initMusic(){
+    if(!isMusicPlaying && !document.body.classList.contains('pro-mode')){
+      bgMusic.play().catch(()=>{});
+      sparkle.play().catch(()=>{});
+      isMusicPlaying = true;
+      musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      musicBtn.classList.add('playing');
+    }
+    document.removeEventListener('click', initMusic);
+  }, { once: true });
+
+  // ===== PROJECT IMAGE SWITCHER =====
+  function switchMain(mainId, thumbEl, src){
+    document.getElementById(mainId).src = src;
+    thumbEl.closest('.project-media').querySelectorAll('.project-thumbs img').forEach(t => t.classList.remove('active'));
+    thumbEl.classList.add('active');
+  }
+
+  // ===== GALLERY LIGHTBOX =====
+  let galleryImages = [], galleryIndex = 0;
+
+  function openGallery(images, index){
+    galleryImages = images; galleryIndex = index;
+    document.getElementById('gallery-img').src = images[index];
+    document.getElementById('gallery-lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGallery(){
+    document.getElementById('gallery-lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function changeGallery(dir){
+    galleryIndex = (galleryIndex + dir + galleryImages.length) % galleryImages.length;
+    document.getElementById('gallery-img').src = galleryImages[galleryIndex];
+  }
+
+  document.addEventListener('keydown', e => {
+    if(!document.getElementById('gallery-lightbox').classList.contains('open')) return;
+    if(e.key === 'ArrowLeft') changeGallery(-1);
+    if(e.key === 'ArrowRight') changeGallery(1);
+    if(e.key === 'Escape') closeGallery();
+  });
+
+  // ===== EMAILJS FORM =====
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const formMsg = document.getElementById('form-message');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true; submitBtn.textContent = 'Sending...';
+    formMsg.textContent = ''; formMsg.className = 'form-message';
+
+    emailjs.send('service_7v00mi8','template_mrsqgu8',{
+      name: document.getElementById('email').value,
+      email: document.getElementById('email').value,
+      title: document.getElementById('subject').value,
+      message: document.getElementById('message').value
+    }).then(()=>{
+      formMsg.textContent = "Message sent! I'll get back to you soon.";
+      formMsg.className = 'form-message success';
+      form.reset();
+    }, ()=>{
+      formMsg.textContent = 'Oops! Something went wrong. Please try again.';
+      formMsg.className = 'form-message error';
+    }).finally(()=>{
+      submitBtn.disabled = false; submitBtn.textContent = 'Send Message';
+    });
+  });
+
+  // ===== REALISTIC SAKURA PETALS (depth of field) =====
+  const canvas = document.getElementById('petal-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function drawPetalShape(ctx, w, h){
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(w * 0.25, -h * 0.9, w * 0.75, -h * 0.9, w, 0);
+    ctx.bezierCurveTo(w * 0.75, h * 0.9, w * 0.25, h * 0.9, 0, 0);
+    ctx.closePath();
+  }
+
+  const PETAL_COUNT = 26;
+  const petals = [];
+
+  class Petal {
+    constructor(init){
+      this.respawn(init);
+    }
+    respawn(init){
+      this.depth = Math.random(); // 0=far, 1=near
+      const near = this.depth > 0.68;
+      const mid  = this.depth > 0.35 && !near;
+
+      // Elongated: width much larger than height
+      this.w = near ? 44 + Math.random()*22 : mid ? 22 + Math.random()*12 : 10 + Math.random()*8;
+      this.h = this.w * (0.22 + Math.random()*0.12);
+
+      this.blur   = near ? 3.5 + Math.random()*4 : mid ? 0.8 + Math.random()*1.5 : 0;
+      this.alpha  = near ? 0.38 + Math.random()*0.28 : mid ? 0.58 + Math.random()*0.28 : 0.68 + Math.random()*0.25;
+
+      const palettes = [
+        ['rgba(255,210,225,','rgba(245,145,175,'],
+        ['rgba(255,228,235,','rgba(240,160,185,'],
+        ['rgba(252,195,215,','rgba(225,110,150,'],
+        ['rgba(255,240,247,','rgba(250,185,210,'],
+      ];
+      const p = palettes[Math.floor(Math.random()*palettes.length)];
+      this.c1 = p[0] + this.alpha + ')';
+      this.c2 = p[1] + (this.alpha * 0.65) + ')';
+
+      this.x = Math.random() * (canvas.width + 80) - 40;
+      this.y = init ? Math.random() * canvas.height : -this.h * 2 - 10;
+
+      const spd = near ? 0.35 + Math.random()*0.55 : mid ? 0.65 + Math.random()*0.8 : 1.0 + Math.random()*1.1;
+      this.vy = spd;
+      this.vx = (Math.random() - 0.5) * (near ? 0.4 : 0.85);
+
+      this.rot  = Math.random() * Math.PI * 2;
+      this.rotV = (Math.random() - 0.5) * (near ? 0.01 : 0.022);
+
+      this.sway     = Math.random() * Math.PI * 2;
+      this.swayAmp  = near ? 0.5 : 0.95;
+      this.swaySpd  = 0.005 + Math.random() * 0.01;
+    }
+    update(){
+      this.sway += this.swaySpd;
+      this.x += this.vx + Math.sin(this.sway) * this.swayAmp;
+      this.y += this.vy;
+      this.rot += this.rotV;
+      if(this.y > canvas.height + 60) this.respawn(false);
+    }
+    draw(){
+      ctx.save();
+      if(this.blur > 0) ctx.filter = `blur(${this.blur.toFixed(1)}px)`;
+
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rot);
+
+      const grad = ctx.createLinearGradient(0, -this.h, this.w, this.h);
+      grad.addColorStop(0, this.c1);
+      grad.addColorStop(0.5, this.c2);
+      grad.addColorStop(1, this.c1);
+
+      drawPetalShape(ctx, this.w, this.h);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Midrib line on sharp/focused petals
+      if(this.blur < 0.5){
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(this.w * 0.5, 0, this.w, 0);
+        ctx.strokeStyle = 'rgba(210, 100, 140, 0.15)';
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
+
+      ctx.filter = 'none';
+      ctx.restore();
+    }
+  }
+
+  // Sort: far first (rendered behind near)
+  for(let i = 0; i < PETAL_COUNT; i++) petals.push(new Petal(true));
+  petals.sort((a, b) => a.depth - b.depth);
+
+  (function animate(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if(!document.body.classList.contains('pro-mode')){
+      petals.forEach(p => { p.update(); p.draw(); });
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    requestAnimationFrame(animate);
+  })();
+</script>
+
+</body>
+</html>
