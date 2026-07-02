@@ -43,14 +43,20 @@
 <header class="header" id="top">
   <div class="header-inner">
     <a href="#top" class="nav-name" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});">Wendy Francisco</a>
-    <nav class="tabs">
-      <a href="#about" class="tab">About</a>
-      <a href="#portfolio" class="tab">Projects</a>
-      <a href="#design" class="tab">Design</a>
-      <a href="#career" class="tab">Career</a>
-      <a href="#contact" class="tab">Contact</a>
+
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleNav()" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="tabs" id="nav-tabs">
+      <a href="#about" class="tab" onclick="closeNav()">About</a>
+      <a href="#portfolio" class="tab" onclick="closeNav()">Projects</a>
+      <a href="#design" class="tab" onclick="closeNav()">Design</a>
+      <a href="#career" class="tab" onclick="closeNav()">Career</a>
+      <a href="#contact" class="tab" onclick="closeNav()">Contact</a>
     </nav>
   </div>
+  <div class="nav-overlay" id="nav-overlay" onclick="closeNav()"></div>
 </header>
 
 <!-- HERO -->
@@ -641,6 +647,20 @@
     }
     requestAnimationFrame(animate);
   })();
+  
+// ===== MOBILE NAV TOGGLE =====
+const navTabs = document.getElementById('nav-tabs');
+const navOverlay = document.getElementById('nav-overlay');
+
+function toggleNav(){
+  navTabs.classList.toggle('open');
+  navOverlay.classList.toggle('open');
+}
+function closeNav(){
+  navTabs.classList.remove('open');
+  navOverlay.classList.remove('open');
+}
+
 </script>
 
 </body>

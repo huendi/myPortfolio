@@ -458,7 +458,7 @@ body.pro-mode .design-card-desc { color: #555; }
 body.pro-mode .design-card-arrow { color: #999; }
 body.pro-mode .design-card:hover .design-card-arrow { color: #111; }
 
- — black & white, minimal, no decoration
+/* black & white, minimal, no decoration
    Toggled via <body class="pro-mode">
    =========================================================== */
 body.pro-mode {
@@ -622,6 +622,57 @@ body.pro-mode .design-card:hover .design-card-arrow { color: #111111; }
   .nav-name { font-size: 16px; }
   .tabs { gap: 14px; }
 }
+
+/* ===== HAMBURGER MENU (mobile nav) ===== */
+.hamburger-btn {
+  display: none;
+  width: 40px; height: 40px;
+  border: none; background: transparent;
+  color: #1a0e08; font-size: 20px;
+  cursor: pointer; align-items: center; justify-content: center;
+  z-index: 1002;
+}
+
+.nav-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(26,14,8,0.35);
+  z-index: 999;
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.nav-overlay.open { display: block; opacity: 1; }
+
+body.pro-mode .hamburger-btn { color: #111111; }
+
+@media (max-width: 768px) {
+  .hamburger-btn { display: flex; }
+
+  .tabs {
+    position: fixed;
+    top: 0; right: -100%;
+    height: 100vh; width: min(78vw, 300px);
+    background: #fdf8f5;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 90px 28px 28px;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+    transition: right 0.3s ease;
+    z-index: 1001;
+  }
+  .tabs.open { right: 0; }
+
+  .tabs .tab {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 15px;
+    border-bottom: 1px solid #f0ddd4;
+  }
+
+  body.pro-mode .tabs { background: #ffffff; }
+  body.pro-mode .tabs .tab { border-bottom-color: #e0e0e0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
