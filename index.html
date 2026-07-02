@@ -41,22 +41,20 @@
 
 <!-- HEADER -->
 <header class="header" id="top">
+  <div class="header-cover"></div>
   <div class="header-inner">
+    <div class="header-photo-mobile">
+      <img src="images/wendy.jfif" alt="Wendy Francisco">
+    </div>
     <a href="#top" class="nav-name" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});">Wendy Francisco</a>
-
-    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleNav()" aria-label="Toggle menu">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <nav class="tabs" id="nav-tabs">
-      <a href="#about" class="tab" onclick="closeNav()">About</a>
-      <a href="#portfolio" class="tab" onclick="closeNav()">Projects</a>
-      <a href="#design" class="tab" onclick="closeNav()">Design</a>
-      <a href="#career" class="tab" onclick="closeNav()">Career</a>
-      <a href="#contact" class="tab" onclick="closeNav()">Contact</a>
+    <nav class="tabs">
+      <a href="#about" class="tab">About</a>
+      <a href="#portfolio" class="tab">Projects</a>
+      <a href="#design" class="tab">Design</a>
+      <a href="#career" class="tab">Career</a>
+      <a href="#contact" class="tab">Contact</a>
     </nav>
   </div>
-  <div class="nav-overlay" id="nav-overlay" onclick="closeNav()"></div>
 </header>
 
 <!-- HERO -->
@@ -363,10 +361,6 @@
            <span class="contact-icon"><img src="images/upwork.svg" alt="Upwork" style="width:18px;height:18px;"></span>
           upwork.com/freelancers/wendymf013
         </a>
-        <a class="contact-link" href="https://github.com/huendi" target="_blank">
-          <span class="contact-icon"><i class="fa-brands fa-github"></i></span>
-          github.com/huendi
-        </a>
       </div>
     </div>
     <div class="contact-form-wrap">
@@ -402,6 +396,14 @@
   <img id="gallery-img" src="" alt="Project screenshot" onclick="event.stopPropagation()">
   <button class="gallery-next" onclick="event.stopPropagation();changeGallery(1)">&#10095;</button>
 </div>
+
+<nav class="bottom-nav">
+  <a href="#about" class="bottom-nav-item">About</a>
+  <a href="#portfolio" class="bottom-nav-item">Projects</a>
+  <a href="#design" class="bottom-nav-item">Design</a>
+  <a href="#career" class="bottom-nav-item">Career</a>
+  <a href="#contact" class="bottom-nav-item">Contact</a>
+</nav>
 
 <script>
   // ===== EMAILJS =====
@@ -647,19 +649,21 @@
     }
     requestAnimationFrame(animate);
   })();
-  
-// ===== MOBILE NAV TOGGLE =====
-const navTabs = document.getElementById('nav-tabs');
-const navOverlay = document.getElementById('nav-overlay');
 
-function toggleNav(){
-  navTabs.classList.toggle('open');
-  navOverlay.classList.toggle('open');
-}
-function closeNav(){
-  navTabs.classList.remove('open');
-  navOverlay.classList.remove('open');
-}
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  tabLinks.forEach(t => {
+    t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+  });
+  document.querySelectorAll('.bottom-nav-item').forEach(t => {
+    t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+  });
+});
+
 
 </script>
 
