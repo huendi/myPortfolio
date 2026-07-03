@@ -15,11 +15,8 @@
 <body>
 
 <!-- Background Music (your existing files) -->
-<audio id="bg-music" loop>
-  <source src="music/background.mp3" type="audio/mpeg">
-</audio>
 <audio id="music-sparkle" loop>
-  <source src="about/Sparkle.mp3" type="audio/mpeg">
+  <source src="public/Sparkle.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Petal Canvas -->
@@ -44,7 +41,7 @@
   <div class="header-cover"></div>
   <div class="header-inner">
     <div class="header-photo-mobile">
-      <img src="images/wendy.jfif" alt="Wendy Francisco">
+      <img src="public/wendy.jfif" alt="Wendy Francisco">
     </div>
     <a href="#top" class="nav-name" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});">Wendy Francisco</a>
     <nav class="tabs">
@@ -79,7 +76,7 @@
     <p class="hero-desc">4th year BSIT student at Cavite State University – Silang. I design, plan, and build systems with purpose — from payroll compliance tools to real estate platforms.</p>
     <div class="hero-btns">
       <a class="btn-primary" href="#portfolio">View Projects</a>
-      <a class="btn-secondary" href="about/resume.pdf" target="_blank">Download CV</a>
+      <a class="btn-secondary" href="public/WENDY M FRANCISCO CV.pdf" target="_blank">Download CV</a>
     </div>
   </div>
 </section>
@@ -91,7 +88,7 @@
   <div class="section-label">About Me</div>
   <div class="about-grid">
     <div class="about-photo-wrap">
-      <img src="images/wendy.jfif" alt="Wendy Francisco" class="about-photo">
+      <img src="public/wendy.jfif" alt="Wendy Francisco" class="about-photo">
     </div>
     <div class="about-text">
       <h2>Konnichiwa!<br>I'm Wendy.</h2>
@@ -346,19 +343,19 @@
       <p>Open to full-time roles in web development, IT support, or anything in between. Let's build something meaningful.</p>
       <div class="contact-links">
         <a class="contact-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=wendymf013@gmail.com" target="_blank">
-          <span class="contact-icon"><img src="images/gmail.png" alt="Email" style="width:18px;height:18px;"></span>
+          <span class="contact-icon"><img src="public/gmail.png" alt="Email" style="width:18px;height:18px;"></span>
           wendymf013@gmail.com
         </a>
         <a class="contact-link" href="viber://chat?number=%2B639354879190">
-          <span class="contact-icon"><img src="images/viber.png" alt="Viber" style="width:18px;height:18px;"></span>
+          <span class="contact-icon"><img src="public/viber.png" alt="Viber" style="width:18px;height:18px;"></span>
           (0935) 487 9190
         </a>
         <a class="contact-link" href="https://www.linkedin.com/in/wendy-francisco-a7897641a" target="_blank">
-          <span class="contact-icon"><img src="images/linkedin.png" alt="LinkedIn" style="width:18px;height:18px;"></span>
+          <span class="contact-icon"><img src="public/linkedin.png" alt="LinkedIn" style="width:18px;height:18px;"></span>
           linkedin.com/in/wendy-francisco
         </a>
         <a class="contact-link" href="https://www.upwork.com/freelancers/~01024feee67ee4a9c4" target="_blank">
-           <span class="contact-icon"><img src="images/upwork.svg" alt="Upwork" style="width:18px;height:18px;"></span>
+           <span class="contact-icon"><img src="public/upwork.svg" alt="Upwork" style="width:18px;height:18px;"></span>
           upwork.com/freelancers/wendymf013
         </a>
       </div>
@@ -385,7 +382,7 @@
   <div class="footer-links">
     <a href="https://www.upwork.com/freelancers/~01024feee67ee4a9c4" target="_blank">UpWork</a>
     <a href="https://www.linkedin.com/in/wendy-francisco-a7897641a/" target="_blank">LinkedIn</a>
-    <a href="about/WENDY M FRANCISCO CV.pdf" target="_blank">CV</a>
+    <a href="public/WENDY M FRANCISCO CV.pdf" target="_blank">CV</a>
   </div>
 </footer>
 
@@ -427,7 +424,6 @@
 
   // ===== PROFESSIONAL MODE =====
   const modeBtn = document.getElementById('mode-toggle');
-  const bgMusic = document.getElementById('bg-music');
   const sparkle = document.getElementById('music-sparkle');
 
   function applyMode(isPro){
@@ -455,11 +451,10 @@
 
   function toggleMusic(){
     if(isMusicPlaying){
-      bgMusic.pause(); sparkle.pause();
+      sparkle.pause();
       musicBtn.innerHTML = '<i class="fas fa-music"></i>';
       musicBtn.classList.remove('playing');
     } else {
-      bgMusic.play().catch(()=>{});
       sparkle.play().catch(()=>{});
       musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
       musicBtn.classList.add('playing');
@@ -469,7 +464,6 @@
 
   document.addEventListener('click', function initMusic(){
     if(!isMusicPlaying && !document.body.classList.contains('pro-mode')){
-      bgMusic.play().catch(()=>{});
       sparkle.play().catch(()=>{});
       isMusicPlaying = true;
       musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
