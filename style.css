@@ -682,6 +682,14 @@ body.pro-mode .design-card:hover .design-card-arrow { color: #111111; }
     background: transparent;      /* <-- FIX: transparent para makita ang petals */
     backdrop-filter: none;        /* <-- FIX: alisin ang blur */
     transition: background 0.3s ease;
+      .gallery-prev, .gallery-next {
+        width: 40px; height: 40px;
+        background: rgba(0,0,0,0.5);
+        font-size: 18px;
+      }
+      .gallery-prev { left: 8px; }
+      .gallery-next { right: 8px; }
+      .gallery-lightbox img { max-width: 82%; }
   }
 
   .header-cover {

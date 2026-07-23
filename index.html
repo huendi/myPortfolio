@@ -123,8 +123,8 @@
     <!-- Project 1: Payroll -->
     <div class="project-row">
       <div class="project-media">
-        <img id="payroll-main" src="projects/Payroll System/1.png" alt="Payroll System"
-          onclick="openGallery(['projects/Payroll System/1.png','projects/Payroll System/2.png','projects/Payroll System/3.png','projects/Payroll System/4.png','projects/Payroll System/6.png'], 0)">
+        <img id="payroll-main" data-index="0" src="projects/Payroll System/1.png" alt="Payroll System"
+          onclick="openGallery(['projects/Payroll System/1.png','projects/Payroll System/2.png','projects/Payroll System/3.png','projects/Payroll System/4.png','projects/Payroll System/6.png'], parseInt(this.dataset.index))">
         <div class="project-thumbs">
           <img src="projects/Payroll System/1.png" class="active" onclick="switchMain('payroll-main',this,'projects/Payroll System/1.png')">
           <img src="projects/Payroll System/2.png" onclick="switchMain('payroll-main',this,'projects/Payroll System/2.png')">
@@ -151,8 +151,8 @@
     <!-- Project 2: MRU Roadmap -->
     <div class="project-row">
       <div class="project-media">
-        <img id="mru-main" src="projects/MRU Roadmap/page1.png" alt="MRU Roadmap"
-          onclick="openGallery(['projects/MRU Roadmap/page1.png','projects/MRU Roadmap/page2.png','projects/MRU Roadmap/page3.png','projects/MRU Roadmap/page4.png','projects/MRU Roadmap/page5.png'], 0)">
+        <img id="mru-main" data-index="0" src="projects/MRU Roadmap/page1.png" alt="MRU Roadmap"
+          onclick="openGallery(['projects/MRU Roadmap/page1.png','projects/MRU Roadmap/page2.png','projects/MRU Roadmap/page3.png','projects/MRU Roadmap/page4.png','projects/MRU Roadmap/page5.png'], parseInt(this.dataset.index))">
         <div class="project-thumbs">
           <img src="projects/MRU Roadmap/page1.png" class="active" onclick="switchMain('mru-main',this,'projects/MRU Roadmap/page1.png')">
           <img src="projects/MRU Roadmap/page2.png" onclick="switchMain('mru-main',this,'projects/MRU Roadmap/page2.png')">
@@ -177,8 +177,8 @@
     <!-- Project 3: TrioVista -->
     <div class="project-row">
       <div class="project-media">
-        <img id="triovista-main" src="projects/triovista/image1.png" alt="TrioVista Heights"
-          onclick="openGallery(['projects/triovista/image1.png','projects/triovista/image2.png','projects/triovista/image3.png','projects/triovista/image4.png','projects/triovista/image5.png'], 0)">
+        <img id="triovista-main" data-index="0" src="projects/triovista/image1.png" alt="TrioVista Heights"
+          onclick="openGallery(['projects/triovista/image1.png','projects/triovista/image2.png','projects/triovista/image3.png','projects/triovista/image4.png','projects/triovista/image5.png'], parseInt(this.dataset.index))">
         <div class="project-thumbs">
           <img src="projects/triovista/image1.png" class="active" onclick="switchMain('triovista-main',this,'projects/triovista/image1.png')">
           <img src="projects/triovista/image2.png" onclick="switchMain('triovista-main',this,'projects/triovista/image2.png')">
@@ -203,8 +203,8 @@
     <!-- Project 4: CAWD Cafe -->
     <div class="project-row">
       <div class="project-media">
-        <img id="cawd-main" src="projects/CAWD Cafe/1.png" alt="CAWD Cafe"
-          onclick="openGallery(['projects/CAWD Cafe/1.png','projects/CAWD Cafe/2.png','projects/CAWD Cafe/3.png','projects/CAWD Cafe/4.png','projects/CAWD Cafe/5.png'], 0)">
+        <img id="cawd-main" data-index="0" src="projects/CAWD Cafe/1.png" alt="CAWD Cafe"
+          onclick="openGallery(['projects/CAWD Cafe/1.png','projects/CAWD Cafe/2.png','projects/CAWD Cafe/3.png','projects/CAWD Cafe/4.png','projects/CAWD Cafe/5.png'], parseInt(this.dataset.index))">
         <div class="project-thumbs">
           <img src="projects/CAWD Cafe/1.png" class="active" onclick="switchMain('cawd-main',this,'projects/CAWD Cafe/1.png')">
           <img src="projects/CAWD Cafe/2.png" onclick="switchMain('cawd-main',this,'projects/CAWD Cafe/2.png')">
@@ -474,7 +474,10 @@
 
   // ===== PROJECT IMAGE SWITCHER =====
   function switchMain(mainId, thumbEl, src){
-    document.getElementById(mainId).src = src;
+    const mainImg = document.getElementById(mainId);
+    mainImg.src = src;
+    const idx = Array.from(thumbEl.parentElement.children).indexOf(thumbEl);
+    mainImg.dataset.index = idx;
     thumbEl.closest('.project-media').querySelectorAll('.project-thumbs img').forEach(t => t.classList.remove('active'));
     thumbEl.classList.add('active');
   }
